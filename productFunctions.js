@@ -32,3 +32,15 @@ export const deleteProduct = async (id) => {
 
   return res.data;
 };
+
+
+
+export const updateProduct = async (productData) => {
+  const res = await axios.post(
+    "http://localhost:3000/product/update",
+    productData
+  );
+
+  return res.data;
+};
+

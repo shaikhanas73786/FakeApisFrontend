@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 
 import CreateProduct from "../components/CreateProduct.jsx";
-
+import UpdateProduct from "../components/UpdateProduct.jsx";
 import { viewMore, deleteProduct } from "../productFunctions.js";
 
 function App() {
@@ -11,7 +11,8 @@ function App() {
   const [products, setProducts] = useState([]);
   const [description, setDescription] = useState();
   const [search, setSearch] = useState("");
-
+  const [showUpdate, setShowUpdate] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const searchRef = useRef(null);
 
   // Products fetch
@@ -51,6 +52,7 @@ function App() {
 
       {/* Search */}
       <input
+       className="search-box"
         ref={searchRef}
         type="text"
         placeholder="Search products..."
@@ -63,25 +65,42 @@ function App() {
         + Add Product
       </button>
 
-      <div>
+      <div className="products-container">
         {filteredProducts.map((product) => (
-          <div key={product.id}>
-            <img src={product.image} alt={product.title} />
+          <div className="product-card" key={product.id}>
+            <img
+              className="product-image"
+              src={product.image}
+              alt={product.title}
+            />
 
-            <h2>{product.title}</h2>
+            <h2 className="product-title">{product.title}</h2>
 
-            <p>Price: ₹{product.price}</p>
+            <p className="product-text product-price">
+              Price: ₹{product.price}
+            </p>
 
-            {/* <p>{product.description}</p> */}
-
-            <p>{product.category}</p>
-
-            <button onClick={() => handleDelete(product.id)}>Delete</button>
-
-            
-            <button>Update</button>
+            <p className="product-text">{product.category}</p>
 
             <button
+              className="delete-btn"
+              onClick={() => handleDelete(product.id)}
+            >
+              Delete
+            </button>
+
+            <button
+              className="update-btn"
+              onClick={() => {
+                setSelectedProduct(product);
+                setShowUpdate(true);
+              }}
+            >
+              Update
+            </button>
+
+            <button
+              className="view-btn"
               onClick={() =>
                 setDescription(description === product.id ? null : product.id)
               }
@@ -102,6 +121,14 @@ function App() {
         <CreateProduct
           onClose={() => setShowCreate(false)}
           onProductCreated={getAllProducts}
+        />
+      )}
+
+      {showUpdate && selectedProduct && (
+        <UpdateProduct
+          product={selectedProduct}
+          onClose={() => setShowUpdate(false)}
+          onProductUpdated={getAllProducts}
         />
       )}
     </div>
