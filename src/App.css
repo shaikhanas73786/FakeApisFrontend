@@ -1,0 +1,250 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7f6;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin: 30px 0 20px;
+  color: #222;
+  font-size: 32px;
+}
+
+/* Search Box */
+h1 + input {
+  display: block;
+  width: 350px;
+  max-width: 90%;
+  margin: 0 auto 15px;
+
+  padding: 13px 18px;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  background: white;
+  color: #222;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: all 0.3s ease;
+}
+
+/* Search Focus */
+h1 + input:focus {
+  border-color: #198754;
+
+  box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.12);
+
+  transform: scale(1.02);
+}
+
+/* Placeholder */
+h1 + input::placeholder {
+  color: #999;
+}
+
+/* Create Button */
+h1 + input + button {
+  display: block;
+  margin: 0 auto 30px;
+
+  padding: 12px 25px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #198754;
+  color: white;
+
+  font-size: 15px;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+h1 + input + button:hover {
+  background: #146c43;
+  transform: translateY(-2px);
+}
+
+/* Product Container */
+h1 ~ div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 25px;
+
+  padding: 20px 40px 50px;
+}
+
+/* Product Card */
+h1 ~ div > div {
+  width: 300px;
+  min-height: 500px;
+
+  background: white;
+
+  border-radius: 15px;
+
+  padding: 20px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  animation: cardShow 0.6s ease;
+}
+
+/* Card Hover */
+h1 ~ div > div:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+h1 ~ div > div img {
+  width: 100%;
+  height: 230px;
+
+  object-fit: contain;
+
+  display: block;
+
+  margin-bottom: 20px;
+
+  transition: transform 0.4s ease;
+}
+
+/* Image Hover */
+h1 ~ div > div:hover img {
+  transform: scale(1.08);
+}
+
+/* Product Title */
+h2 {
+  font-size: 18px;
+
+  color: #222;
+
+  margin-bottom: 12px;
+
+  display: -webkit-box;
+  /* -webkit-line-clamp: 2; */
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+/* Product Details */
+p {
+  color: #555;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  margin: 7px 0;
+}
+
+/* Price */
+p:nth-of-type(1) {
+  font-size: 17px;
+
+  font-weight: bold;
+
+  color: #198754;
+}
+
+/* Card Buttons */
+h1 ~ div > div button {
+  border: none;
+
+  padding: 9px 13px;
+
+  margin: 12px 4px 0;
+
+  border-radius: 6px;
+
+  color: white;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+/* Delete */
+h1 ~ div > div button:nth-of-type(1) {
+  background: #dc3545;
+}
+
+/* Update */
+h1 ~ div > div button:nth-of-type(2) {
+  background: #0d6efd;
+}
+
+/* View More */
+h1 ~ div > div button:nth-of-type(3) {
+  background: #6c757d;
+}
+
+/* Button Hover */
+h1 ~ div > div button:hover {
+  transform: translateY(-3px);
+
+  filter: brightness(0.9);
+}
+
+/* Card Animation */
+@keyframes cardShow {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h1 + input {
+    width: 90%;
+  }
+
+  h1 ~ div {
+    padding: 20px;
+  }
+
+  h1 ~ div > div {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+
+

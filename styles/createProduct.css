@@ -1,0 +1,376 @@
+
+/* =========================
+   CREATE PRODUCT
+========================= */
+
+.create-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  z-index: 1000;
+
+  animation: overlayShow 0.25s ease;
+}
+
+
+/* Form Box */
+
+.create-form {
+  width: 560px;
+  max-width: 100%;
+
+  max-height: 92vh;
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.25);
+
+  animation: formShow 0.3s ease;
+}
+
+
+/* Header */
+
+.create-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 25px;
+}
+
+.create-header h2 {
+  margin: 0 0 5px;
+
+  font-size: 24px;
+
+  color: #222;
+}
+
+.create-header p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+
+/* Close Button */
+
+.close-btn {
+  width: 35px;
+  height: 35px;
+
+  padding: 0;
+
+  margin: 0;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f2f2f2;
+
+  color: #555;
+
+  font-size: 24px;
+
+  line-height: 35px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.close-btn:hover {
+  background: #ffe5e5;
+
+  color: #dc3545;
+
+  transform: rotate(90deg);
+}
+
+
+/* Input Group */
+
+.input-group {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 17px;
+}
+
+.input-group label {
+  margin-bottom: 7px;
+
+  color: #333;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* Inputs */
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d8d8d8;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #fff;
+
+  color: #222;
+
+  font-size: 14px;
+
+  transition: all 0.25s ease;
+}
+
+
+/* Input Focus */
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #198754;
+
+  box-shadow:
+    0 0 0 3px rgba(25, 135, 84, 0.1);
+}
+
+
+/* Placeholder */
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: #aaa;
+}
+
+
+/* Two Inputs in One Row */
+
+.input-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+}
+
+
+/* Description */
+
+.input-group textarea {
+  height: 120px;
+
+  resize: vertical;
+
+  min-height: 100px;
+
+  font-family: Arial, sans-serif;
+
+  line-height: 1.5;
+}
+
+
+/* Error */
+
+.error-message {
+  padding: 11px 13px;
+
+  margin-bottom: 18px;
+
+  border-radius: 7px;
+
+  background: #fff0f0;
+
+  border: 1px solid #ffcaca;
+
+  color: #dc3545;
+
+  font-size: 13px;
+}
+
+
+/* Buttons Container */
+
+.form-buttons {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 25px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #eee;
+}
+
+
+/* Cancel */
+
+.cancel-btn {
+  padding: 11px 20px;
+
+  margin: 0;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  background: #fff;
+
+  color: #555;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.cancel-btn:hover {
+  background: #f5f5f5;
+
+  border-color: #bbb;
+}
+
+
+/* Add Product */
+
+.add-product-btn {
+  padding: 11px 22px;
+
+  margin: 0;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #198754;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.add-product-btn:hover {
+  background: #146c43;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(25, 135, 84, 0.25);
+}
+
+
+/* Disabled */
+
+.cancel-btn:disabled,
+.add-product-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* Overlay Animation */
+
+@keyframes overlayShow {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+/* Form Animation */
+
+@keyframes formShow {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-25px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .create-form {
+    padding: 22px;
+
+    border-radius: 12px;
+  }
+
+  .create-header h2 {
+    font-size: 21px;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-buttons {
+    flex-direction: column-reverse;
+  }
+
+  .cancel-btn,
+  .add-product-btn {
+    width: 100%;
+  }
+
+}
